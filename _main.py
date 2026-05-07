@@ -15,32 +15,32 @@ import PROMPT_MANAGEMENT
 import EXECUTOR
 import GUARDRAILS
 
-# Build the Log Analytics Client which is used to Query Log Analytics Workspace
-# Requires you to use 'az login' at the command line first and log into Azure
+# Connecting the user to Azure Log Analytics
 law_client = LogsQueryClient(credential=DefaultAzureCredential())
 
-# Builds the Open AI client which is used to send requests to the OpenAI API
-# and have conversations with ChatGPT
+# Connects to OpenAI using the API key user have entered in OPENAI_API_KEY and establish an authorized session
 openai_client = OpenAI(api_key=_keys.OPENAI_API_KEY)
 
-# Assign the default model to be used.
-# Logic will be used later to select a more appropriate model if needed
+# Assign the model to use. Can switch models depending on token size, cost, rate limits when prompted
 model = MODEL_MANAGEMENT.DEFAULT_MODEL
 
 # Get the message from the user (What do you wan to hunt for?)
-user_message = PROMPT_MANAGEMENT.get_user_message() #TODO: Remove comment
-# Example: I'm worried that windows-target-1 might have been maliciously logged into in the last few days
+# Example: I'm worried that VM1 might have been maliciously logged into in the last few days
+user_message = PROMPT_MANAGEMENT.get_user_message() 
 
-# return an object that describes the user's request as well as where and how the agent has decided to search
-unformatted_query_context = EXECUTOR.get_query_context(openai_client, user_message, model=model)
+# Return an object that describes the user's request as well as where and how the agent has decided to search
+unformatted_query_context = EXECUTOR.get_query_context(
+                            openai_client, 
+                            user_message, 
+                            model=model)
 
-# sanitizing unformatted_query_context values, and normalizing field formats.
+# Sanitizing unformatted_query_context values, and normalizing field formats.
 query_context = UTILITIES.sanitize_query_context(unformatted_query_context)
 
 # Show the user where we are going to search based on their request
 UTILITIES.display_query_context(query_context)
 
-# Ensure the table and fields returned by the model are allowed to be queried
+# Ensure the table and fields returned by the model are allowed to be queried (AI Safety boundry)
 GUARDRAILS.validate_tables_and_fields(query_context["table_name"], query_context["fields"])
 
 # Query Log Analytics Workspace
@@ -58,7 +58,7 @@ number_of_records = law_query_results['count']
 
 print(f"{Fore.WHITE}{number_of_records} record(s) returned.\n")
 
-# Exit the program if no recores are returned
+# Exit the program if no records are returned
 if number_of_records == 0:
     print("Exiting.")
     exit(0)
