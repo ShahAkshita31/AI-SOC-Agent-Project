@@ -99,7 +99,8 @@ The agent follows a modular architecture separating logic, API execution, and sa
 
 
 - Log Analytics result and model selection based on estimated cost:
-<img width="1878" height="918" alt="Screenshot 2025-12-10 164219" src="https://github.com/user-attachments/assets/ebdab1ce-5108-4d18-859d-e0d31a3c19dd" />
+<img width="1162" height="541" alt="image" src="https://github.com/user-attachments/assets/78878fe1-a64b-415d-a8a1-4a558a3a5c06" />
+
 
 - Threat hunt result displaying with severity levels and MITRE mapping:
 <img width="2148" height="1363" alt="Screenshot 2025-12-10 164810" src="https://github.com/user-attachments/assets/66583c44-86aa-40ec-bcc5-683f47dfc4a5" />
