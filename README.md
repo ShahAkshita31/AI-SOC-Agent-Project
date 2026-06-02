@@ -95,7 +95,8 @@ The agent follows a modular architecture separating logic, API execution, and sa
 **Agent:** Generates KQL, queries Azure, and presents a structured table of evidence.
 
 - User prompt and mapping to a relevant KQL query demo:
-<img width="2132" height="875" alt="Screenshot 2025-12-10 163808" src="https://github.com/user-attachments/assets/b4bc730f-01a9-4449-8baf-7d42d18e9e6d" />
+<img width="1357" height="561" alt="image" src="https://github.com/user-attachments/assets/28a880da-ad5c-45ac-b7ef-9aec2d41be72" />
+
 
 - Log Analytics result and model selection based on estimated cost:
 <img width="1878" height="918" alt="Screenshot 2025-12-10 164219" src="https://github.com/user-attachments/assets/ebdab1ce-5108-4d18-859d-e0d31a3c19dd" />
