@@ -103,7 +103,8 @@ The agent follows a modular architecture separating logic, API execution, and sa
 
 
 - Threat hunt result displaying with severity levels and MITRE mapping:
-<img width="2148" height="1363" alt="Screenshot 2025-12-10 164810" src="https://github.com/user-attachments/assets/66583c44-86aa-40ec-bcc5-683f47dfc4a5" />
+<img width="1456" height="745" alt="image" src="https://github.com/user-attachments/assets/7d6035c3-ff72-4bb4-841f-1f0570c643c4" />
+
 
 ### 2. Remediation
 If a High Confidence threat is found, the agent offers immediate action.
