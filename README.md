@@ -111,14 +111,14 @@ If a High Confidence threat is found, the agent offers immediate action.
 
 **Agent:** "High confidence threat detected on host: aniket-ai-soc-l. Would you like to isolate this VM? (yes/no)"
 
-<img width="1671" height="259" alt="Screenshot 2025-12-10 165117" src="https://github.com/user-attachments/assets/9a6f5273-da8f-495f-8e9e-4cd4ab05caf1" />
+
 
 ### 3. Rule Creation (Closing the Loop)
 The agent generates a KQL rule to prevent future attacks and deploys it to Sentinel.
 
 **Agent:** "Initiating detection rule generation... Proposed Sentinel Rule: 'User-launched PowerShell_ISE.exe invoked cmd.exe to write 'Initializing Attack' to C:\Temp\Steal_Data\init.txt'. Deploy to Sentinel?"
 
-<img width="1880" height="741" alt="Screenshot 2025-12-10 165511" src="https://github.com/user-attachments/assets/a9c3460a-7161-4ca8-9563-7a90a53f256f" />
+
 
 ---
 
